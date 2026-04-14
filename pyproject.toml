@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "discordium"
+version = "0.1.0b1"
+description = "Typed, async-first Discord API wrapper for Python 3.11+"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+authors = [{ name = "Pedro Jorge" }]
+keywords = ["discord", "discord-api", "bot", "async", "gateway", "interactions", "slash-commands"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications :: Chat",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = [
+    "aiohttp>=3.9,<4",
+    "orjson>=3.9,<4",
+]
+
+[project.optional-dependencies]
+speed = ["aiodns>=3.0", "Brotli>=1.0"]
+voice = ["PyNaCl>=1.5"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "coverage>=7.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Error44s/discordium"
+Repository = "https://github.com/Error44s/discordium"
+Issues = "https://github.com/Error44s/discordium/issues"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "ANN", "B", "SIM", "TCH"]
+ignore = ["ANN101", "ANN102"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
