@@ -2,7 +2,7 @@
 
 Covers: cache, components, interaction lifecycle, guards, dispatcher,
 task loops, gateway payload handling, rate limiter, router dispatch,
-file uploads, and error hierarchy. - discordium
+file uploads, and error hierarchy.
 """
 
 import asyncio
